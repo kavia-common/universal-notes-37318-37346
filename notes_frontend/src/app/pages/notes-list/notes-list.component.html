@@ -1,0 +1,32 @@
+<section class="notes-list">
+  <div class="controls">
+    <input class="search" [(ngModel)]="query" (ngModelChange)="applyFilter()" placeholder="Search notes..." />
+    <a routerLink="/notes/new">
+      <app-button kind="primary" label="New Note"></app-button>
+    </a>
+  </div>
+
+  <div class="grid" *ngIf="!loading; else loadingTpl">
+    <app-card *ngFor="let note of filtered" class="note-card">
+      <div class="note-header">
+        <h3 class="note-title">
+          <a [routerLink]="['/notes', note.id]">{{ note.title || 'Untitled' }}</a>
+        </h3>
+        <div class="note-meta">
+          <span>Updated {{ note.updatedAt | date:'short' }}</span>
+        </div>
+      </div>
+      <p class="note-content">{{ note.content || 'No content' }}</p>
+      <div class="actions">
+        <a [routerLink]="['/notes', note.id]">
+          <app-button kind="ghost" label="Edit"></app-button>
+        </a>
+        <app-button kind="danger" label="Delete" (clicked)="onDelete(note)"></app-button>
+      </div>
+    </app-card>
+  </div>
+
+  <ng-template #loadingTpl>
+    <div class="loading">Loading notes…</div>
+  </ng-template>
+</section>

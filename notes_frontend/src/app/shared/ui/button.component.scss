@@ -1,0 +1,32 @@
+.btn {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.primary {
+  background: #2563EB;
+  color: white;
+  box-shadow: 0 6px 16px rgba(37,99,235,0.25);
+}
+.primary:hover { filter: brightness(1.05); }
+.primary:disabled { opacity: .6; cursor: not-allowed; }
+
+.danger {
+  background: #EF4444;
+  color: white;
+  box-shadow: 0 6px 16px rgba(239,68,68,0.25);
+}
+.danger:hover { filter: brightness(1.05); }
+
+.ghost {
+  background: transparent;
+  border-color: rgba(17,24,39,0.15);
+  color: #111827;
+}
+.ghost:hover {
+  background: rgba(17,24,39,0.04);
+}

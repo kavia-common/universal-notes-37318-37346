@@ -1,0 +1,11 @@
+@use './_tokens.scss' as *;
+@use './_utilities.scss';
+
+:root {
+  --color-primary: #{$primary};
+  --color-secondary: #{$secondary};
+  --color-error: #{$error};
+  --color-bg: #{$bg};
+  --color-surface: #{$surface};
+  --color-text: #{$text};
+}

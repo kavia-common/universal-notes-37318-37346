@@ -1,59 +1,83 @@
-# Angular
+# Notes Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+A responsive Angular UI for creating, viewing, editing, and deleting notes. Styled with the Ocean Professional theme.
 
-## Development server
+## Quick Start
 
-To start a local development server, run:
+- Install dependencies:
+  npm install
 
-```bash
-ng serve
-```
+- Start dev server (the preview runs on port 3000 automatically):
+  npm start
+  Then open http://localhost:3000
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Routes
 
-## Code scaffolding
+- /              Notes list with search/filter
+- /notes/new     Create a note
+- /notes/:id     Edit an existing note
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Theme
 
-```bash
-ng generate component component-name
-```
+Ocean Professional:
+- Primary: #2563EB
+- Secondary/Success: #F59E0B
+- Error: #EF4444
+- Background: #f9fafb
+- Surface: #ffffff
+- Text: #111827
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The app uses a card-based layout with a sidebar and a main panel.
 
-```bash
-ng generate --help
-```
+## Environment Variables
 
-## Building
+The app reads API base URL from:
+- NG_APP_API_BASE (preferred)
+- NG_APP_BACKEND_URL (fallback)
 
-To build the project run:
+If neither is set, the app uses an in-memory mock service and logs a TODO in the console.
 
-```bash
-ng build
-```
+Optionally supported:
+- NG_APP_FRONTEND_URL
+- NG_APP_NODE_ENV
+- NG_APP_ENABLE_SOURCE_MAPS
+- NG_APP_PORT (preview uses 3000; angular.json already configured)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Set these via your environment before building/serving. For local development, you can export them in your shell:
+export NG_APP_API_BASE="https://your-backend.example.com"
 
-## Running unit tests
+## Switching to Real API
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Ensure NG_APP_API_BASE (or NG_APP_BACKEND_URL) points to your backend (expected endpoints: GET /notes, GET /notes/:id, POST /notes, PUT /notes/:id, DELETE /notes/:id).
+- The NotesService automatically uses the real API when a base URL is present.
+- Remove or ignore the in-memory mock when backend is ready.
 
-```bash
-ng test
-```
+## Components
 
-## Running end-to-end tests
+- SidebarComponent: Navigation
+- HeaderComponent: Page header with search and new-note action
+- NotesListComponent: Displays notes grid with search and delete
+- NoteEditorComponent: Create/edit form with validation
 
-For end-to-end (e2e) testing, run:
+## Services
 
-```bash
-ng e2e
-```
+- NotesService: CRUD operations; selects API or mock based on env vars
+- NotesMockService: In-memory CRUD with sessionStorage persistence
+- ToastService: Lightweight notifications
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Build
 
-## Additional Resources
+- Production build:
+  npm run build
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Artifacts are output to dist/angular.
+
+## Testing
+
+- Unit tests:
+  npm test
+
+## Notes
+
+- The dev server is configured to listen on port 3000 for compatibility with the preview environment.
+- SSR files exist but are not required for local development.

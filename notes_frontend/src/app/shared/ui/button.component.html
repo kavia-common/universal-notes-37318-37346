@@ -1,0 +1,3 @@
+<button class="btn" [class.primary]="kind==='primary'" [class.danger]="kind==='danger'" [class.ghost]="kind==='ghost'" [disabled]="disabled" (click)="onClick($event)">
+  {{ label }}
+</button>

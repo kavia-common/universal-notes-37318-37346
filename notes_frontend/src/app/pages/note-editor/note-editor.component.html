@@ -1,0 +1,20 @@
+<section class="editor">
+  <app-card>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="field">
+        <label for="title">Title</label>
+        <input id="title" name="title" required [(ngModel)]="model.title" placeholder="Note title" />
+      </div>
+
+      <div class="field">
+        <label for="content">Content</label>
+        <textarea id="content" name="content" rows="10" required [(ngModel)]="model.content" placeholder="Write your note..."></textarea>
+      </div>
+
+      <div class="actions">
+        <a routerLink="/" class="cancel">Cancel</a>
+        <app-button [disabled]="saving" kind="primary" [label]="noteId && noteId !== 'new' ? 'Save Changes' : 'Create Note'"></app-button>
+      </div>
+    </form>
+  </app-card>
+</section>

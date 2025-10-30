@@ -1,0 +1,13 @@
+.ui-input {
+  border: 1px solid rgba(17,24,39,0.12);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  outline: none;
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.ui-input:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.18);
+}

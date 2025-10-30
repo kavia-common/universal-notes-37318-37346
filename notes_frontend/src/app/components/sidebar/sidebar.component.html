@@ -1,0 +1,18 @@
+<nav class="sidebar-root">
+  <div class="brand">
+    <div class="logo">🗒️</div>
+    <div class="title">
+      <span class="name">Universal Notes</span>
+      <span class="tagline">Ocean Professional</span>
+    </div>
+  </div>
+
+  <ul class="nav">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All Notes</a></li>
+    <li><a routerLink="/notes/new" routerLinkActive="active">New Note</a></li>
+  </ul>
+
+  <div class="footer">
+    <small>© {{ year }} Notes</small>
+  </div>
+</nav>

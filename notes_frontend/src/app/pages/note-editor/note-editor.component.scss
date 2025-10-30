@@ -1,0 +1,45 @@
+.editor {
+  margin-top: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.375rem;
+  margin-bottom: 0.875rem;
+}
+
+.field label {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.field input,
+.field textarea {
+  border: 1px solid rgba(17,24,39,0.08);
+  padding: 0.625rem 0.75rem;
+  border-radius: 10px;
+  outline: none;
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.18);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.cancel {
+  align-self: center;
+  color: #6b7280;
+  text-decoration: none;
+}
+.cancel:hover { color: #111827; }

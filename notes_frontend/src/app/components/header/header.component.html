@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="left">
+    <h1 class="title">Notes</h1>
+    <p class="subtitle">Capture ideas quickly and stay organized.</p>
+  </div>
+  <div class="right">
+    <app-input placeholder="Search notes..." [(ngModel)]="query" (ngModelChange)="onSearchChange(query)" />
+    <a routerLink="/notes/new">
+      <app-button kind="primary" label="New Note"></app-button>
+    </a>
+  </div>
+</header>
